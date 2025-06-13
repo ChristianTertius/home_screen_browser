@@ -1,13 +1,33 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
+  const [greeting, setGreeting] = useState("");
+
+  useEffect(() => {
+    const hour = new Date().getHours();
+
+    if (hour < 12) {
+      setGreeting("Morning");
+    } else if (hour < 18) {
+      setGreeting("Afternoon");
+    } else {
+      setGreeting("Evening");
+    }
+  }, []);
+
   return (
     <section className="min-h-screen gap-10 flex flex-col items-center justify-center bg-main-color">
+      <header className="fixed top-0 p-5 w-full">
+        <h1 className="text-right font-semibold text-lg">
+          🖐 Good {greeting} Christer
+        </h1>
+      </header>
       <h1 className="font-display text-3xl font-semibold underline underline-offset-[1.2rem]">
         This is Home Screen
       </h1>
 
-      <div className="flex gap-10 flex-wrap justify-center">
+      <div className="flex gap-10 flex-wrap justify-center shadow-sm p-5 rounded-lg bg-amber-50/20 backdrop-blur-lg">
         <a
           href="https://monkeytype.com/"
           className="text-center text-sm hover:bg-[#e9e2d7] transition-all  p-5 rounded-md"
@@ -128,6 +148,10 @@ function App() {
           </div>
         </a>
       </div>
+
+      <footer className="font-medium fixed w-full bottom-0 text-center py-2 px-5">
+        Created by Christer 💘
+      </footer>
     </section>
   );
 }
