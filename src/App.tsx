@@ -1,33 +1,15 @@
-import { useEffect, useState } from "react";
 import "./App.css";
+import DynamicHeader from "./DynamicHeader";
 
 function App() {
-  const [greeting, setGreeting] = useState("");
-
-  useEffect(() => {
-    const hour = new Date().getHours();
-
-    if (hour < 12) {
-      setGreeting("Morning");
-    } else if (hour < 18) {
-      setGreeting("Afternoon");
-    } else {
-      setGreeting("Evening");
-    }
-  }, []);
-
   return (
-    <section className="min-h-screen gap-10 flex flex-col items-center justify-center bg-main-color">
-      <header className="fixed top-0 p-5 w-full">
-        <h1 className="text-right font-semibold text-lg">
-          🖐 Good {greeting} Christer
-        </h1>
-      </header>
+    <section className="min-h-screen gap-10 flex flex-col items-center justify-center bg-main-color font-display">
+      <DynamicHeader />
       <h1 className="font-display text-3xl font-semibold underline underline-offset-[1.2rem]">
         This is Home Screen
       </h1>
 
-      <div className="flex gap-10 flex-wrap justify-center shadow-sm p-5 rounded-lg bg-amber-50/20 backdrop-blur-lg">
+      <div className="flex gap-5 sm:gap-10 flex-wrap justify-center shadow-sm p-5 rounded-lg bg-amber-50/20 backdrop-blur-lg">
         <a
           href="https://monkeytype.com/"
           className="text-center text-sm hover:bg-[#e9e2d7] transition-all  p-5 rounded-md"
