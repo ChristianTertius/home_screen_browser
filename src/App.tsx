@@ -1,4 +1,5 @@
 import "./App.css";
+import { TodoList } from "./components/TodoList";
 import VantaBackground from "./components/VantaBackground";
 import DynamicHeader from "./DynamicHeader";
 
@@ -6,10 +7,11 @@ function App() {
   return (
     <>
       {/* VantaBackground sebagai background fixed */}
-      {/* <VantaBackground /> */}
+      <VantaBackground />
 
       <section className="min-h-screen gap-10 flex flex-col items-center justify-center font-display relative">
         {/* Hapus bg-main-color karena sekarang pakai VANTA background */}
+        <TodoList />
         <DynamicHeader />
         <h1 className="font-display text-3xl font-semibold underline underline-offset-[1.2rem]">
           This is Home Screen
