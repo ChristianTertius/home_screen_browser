@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       {/* VantaBackground sebagai background fixed */}
-      <VantaBackground />
+      {/* <VantaBackground /> */}
 
       <section className="min-h-screen gap-10 flex flex-col items-center justify-center font-display relative">
         {/* Hapus bg-main-color karena sekarang pakai VANTA background */}
