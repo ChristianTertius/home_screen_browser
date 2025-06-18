@@ -1,5 +1,5 @@
 import { useLocalStorage } from "./useLocalStorage";
-import { Todo } from "../../types/todo";
+import { Todo } from "../types/todo";
 
 export function useTodos() {
   const [todos, setTodos] = useLocalStorage<Todo[]>("todos", []);
