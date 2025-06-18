@@ -9,7 +9,7 @@ function App() {
         This is Home Screen
       </h1>
 
-      <div className="flex gap-5 sm:gap-10 flex-wrap justify-center shadow-sm p-5 rounded-lg bg-amber-50/20 backdrop-blur-lg">
+      <div className="flex sm:gap-10 flex-wrap justify-center shadow-sm p-5 rounded-lg bg-amber-50/20 backdrop-blur-lg">
         <a
           href="https://monkeytype.com/"
           className="text-center text-sm hover:bg-[#e9e2d7] transition-all  p-5 rounded-md"
