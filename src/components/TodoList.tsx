@@ -14,7 +14,7 @@ export function TodoList() {
   };
 
   return (
-    <div className="absolute bg-[#f0e7db] backdrop-blur-sm max-w-md mx-auto mt-8 p-6 bg-white/80 rounded-lg shadow-xl top-15 right-5 z-10">
+    <div className="absolute bg-[#f0e7db] backdrop-blur-sm max-w-md mx-auto mt-8 p-6 bg-white/80 rounded-lg shadow-xl top-15 right-5 z-10 overflow-y-auto max-h-[35vh]">
       <h1 className="text-2xl font-bold mb-4">Todo List</h1>
       <form onSubmit={handleSubmit} className="mb-4">
         <div className="flex gap-2">
