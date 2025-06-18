@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 const VantaBackground: React.FC = () => {
   const vantaRef = useRef<HTMLDivElement>(null);
-  const [vantaEffect, setVantaEffect] = useState<any>(null);
+  const [_, setVantaEffect] = useState<any>(null);
 
   useEffect(() => {
     let effect: any;
