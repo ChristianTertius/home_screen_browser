@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const DynamicHeader = () => {
   const [currentDate, setCurrentDate] = useState("");
@@ -9,7 +9,7 @@ const DynamicHeader = () => {
       const now = new Date();
 
       // Format tanggal dalam bahasa Indonesia
-      const options = {
+      const options: Intl.DateTimeFormatOptions = {
         weekday: "long",
         year: "numeric",
         month: "long",
