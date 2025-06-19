@@ -14,7 +14,7 @@ export function TodoList() {
   };
 
   return (
-    <div className="absolute bg-[#f0e7db] backdrop-blur-sm max-w-md mx-auto mt-8 p-6 bg-white/80 rounded-lg shadow-xl top-15 right-5 z-10 overflow-y-auto max-h-[35vh]">
+    <div className="absolute bg-[#f0e7db] backdrop-blur-sm max-w-md mx-auto mt-8 p-6 bg-white/80 rounded-2xl shadow-xl top-15 right-5 z-10 overflow-y-auto max-h-[35vh] z-[9999]">
       <h1 className="text-2xl font-bold mb-4">Todo List</h1>
       <form onSubmit={handleSubmit} className="mb-4">
         <div className="flex gap-2">
@@ -23,11 +23,11 @@ export function TodoList() {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="Add new todo..."
-            className="flex-1 px-3 py-2 border-2 border-gray-400 rounded-md focus:outline-none focus:ring"
+            className="focus:shadow-sm flex-1 px-3 py-2 border-2 border-gray-700 rounded-md focus:outline-none transition-all duration-150"
           />
           <button
             type="submit"
-            className="px-4 py-2 border-2 border-gray-400 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-4 py-2 bg-gray-700 bg-black rounded-md hover:bg-black focus:outline-none text-white transition-all duration-150 cursor-pointer"
           >
             Add
           </button>
@@ -93,7 +93,7 @@ export function TodoList() {
 
             <button
               onClick={() => deleteTodo(todo.id)}
-              className="px-2 py-1 text-red-500 hover:bg-red-50 rounded text-sm transition-colors flex-shrink-0"
+              className="px-2 py-1 text-red-500 hover:bg-red-50 rounded text-sm transition-colors flex-shrink-0 cursor-pointer"
             >
               Delete
             </button>

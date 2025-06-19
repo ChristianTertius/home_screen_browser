@@ -19,9 +19,14 @@ const VantaBackground: React.FC = () => {
           minWidth: 200.0,
           scale: 1.0,
           scaleMobile: 1.0,
-          backgroundColor: 0xf0e7db,
+          // Gunakan backgroundAlpha untuk transparansi dan set manual background image via CSS
+          backgroundAlpha: 0.0, // Membuat background VANTA transparan
           color1: 0xb49c7a, // Soft brown untuk burung
-          color2: 0xb49c7a, // Bisa juga pakai warna yang sama biar seragam
+          color2: 0xb49c7a,
+          separation: 20,
+          alignment: 20,
+          cohesion: 20,
+          quantity: 4,
         });
         setVantaEffect(effect);
       }
@@ -59,8 +64,13 @@ const VantaBackground: React.FC = () => {
         left: 0,
         width: "100%",
         height: "100vh",
-        backgroundColor: "#0a0a0a",
-        zIndex: -1, // Pastikan di belakang semua konten
+        // Set background image via CSS
+        backgroundImage: "url('/bg.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundColor: "#f0e7db", // Fallback color
+        zIndex: -1,
       }}
     />
   );

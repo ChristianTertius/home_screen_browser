@@ -12,15 +12,18 @@ function App() {
       <section className="min-h-screen gap-10 flex flex-col items-center justify-center font-display relative">
         {/* Hapus bg-main-color karena sekarang pakai VANTA background */}
         <TodoList />
+        <div className="bg-black/10 w-full h-full fixed"></div>
         <DynamicHeader />
-        <h1 className="font-display text-3xl font-semibold underline underline-offset-[1.2rem]">
-          This is Home Screen
-        </h1>
+        <div className="bg-amber-50/20 backdrop-blur-md px-8 py-4 rounded-2xl">
+          <h1 className="font-display text-3xl font-semibold">
+            This is Home Screen
+          </h1>
+        </div>
 
-        <div className="flex sm:gap-10 flex-wrap justify-center shadow-sm p-5 rounded-lg bg-amber-50/20 backdrop-blur-md">
+        <div className="flex sm:gap-10 flex-wrap justify-center shadow-sm p-5 rounded-lg bg-amber-50/20 backdrop-blur-sm text-shadow-sm text-shadow-white/10">
           <a
             href="https://monkeytype.com/"
-            className="text-center text-sm hover:bg-[#e9e2d7] transition-all  p-5 rounded-md"
+            className="text-center text-sm hover:bg-[#e9e2d7]/20 transition-all  p-5 rounded-md"
           >
             <div className="flex justify-center flex-col items-center gap-2">
               <div className="bg-[#f5f0e8] size-14 rounded-full overflow-hidden p-3">
@@ -36,7 +39,7 @@ function App() {
 
           <a
             href="https://youtube.com/"
-            className="text-center size-32 text-sm hover:bg-[#e9e2d7] transition-all  p-5 rounded-md"
+            className="text-center size-32 text-sm hover:bg-[#e9e2d7]/20 transition-all  p-5 rounded-md"
           >
             <div className="flex justify-center flex-col items-center gap-2">
               <div className="bg-[#f5f0e8] size-14 rounded-full overflow-hidden p-3">
@@ -52,7 +55,7 @@ function App() {
 
           <a
             href="https://mail.google.com/mail/u/0/#inbox"
-            className="text-center size-32 text-sm hover:bg-[#e9e2d7] transition-all  p-5 rounded-md"
+            className="text-center size-32 text-sm hover:bg-[#e9e2d7]/20 transition-all  p-5 rounded-md"
           >
             <div className="flex justify-center flex-col items-center gap-2">
               <div className="bg-[#f5f0e8] size-14 rounded-full overflow-hidden p-3">
@@ -67,7 +70,7 @@ function App() {
 
           <a
             href="https://mail.google.com/mail/u/1/#inbox"
-            className="text-center size-32 text-sm hover:bg-[#e9e2d7] transition-all  p-5 rounded-md"
+            className="text-center size-32 text-sm hover:bg-[#e9e2d7]/20 transition-all  p-5 rounded-md"
           >
             <div className="flex justify-center flex-col items-center gap-2">
               <div className="bg-[#f5f0e8] size-14 rounded-full overflow-hidden p-3">
@@ -82,7 +85,7 @@ function App() {
 
           <a
             href="https://www.twitch.tv/kyedae"
-            className="text-center size-32 text-sm hover:bg-[#e9e2d7] transition-all  p-5 rounded-md"
+            className="text-center size-32 text-sm hover:bg-[#e9e2d7]/20 transition-all  p-5 rounded-md"
           >
             <div className="flex justify-center flex-col items-center gap-2">
               <div className="bg-[#f5f0e8] size-14 rounded-full overflow-hidden p-3">
@@ -97,7 +100,7 @@ function App() {
 
           <a
             href="https://www.instagram.com/"
-            className="text-center size-32 text-sm hover:bg-[#e9e2d7] transition-all  p-5 rounded-md"
+            className="text-center size-32 text-sm hover:bg-[#e9e2d7]/20 transition-all  p-5 rounded-md"
           >
             <div className="flex justify-center flex-col items-center gap-2">
               <div className="bg-[#f5f0e8] size-14 rounded-full overflow-hidden p-3">
@@ -112,7 +115,7 @@ function App() {
 
           <a
             href="https://studio.youtube.com/channel/UC3V_KJjdJGp1Dh-NQBmfk3A/monetization"
-            className="text-center size-32 text-sm hover:bg-[#e9e2d7] transition-all  p-5 rounded-md"
+            className="text-center size-32 text-sm hover:bg-[#e9e2d7]/20 transition-all  p-5 rounded-md"
           >
             <div className="flex justify-center flex-col items-center gap-2">
               <div className="bg-[#f5f0e8] size-14 rounded-full overflow-hidden p-3">
@@ -127,7 +130,7 @@ function App() {
 
           <a
             href="https://translate.google.co.id/?hl=id"
-            className="text-center size-32 text-sm hover:bg-[#e9e2d7] transition-all  p-5 rounded-md"
+            className="text-center size-32 text-sm hover:bg-[#e9e2d7]/20 transition-all  p-5 rounded-md"
           >
             <div className="flex justify-center flex-col items-center gap-2">
               <div className="bg-[#f5f0e8] size-14 rounded-full overflow-hidden p-3">
