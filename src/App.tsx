@@ -4,6 +4,7 @@ import { TodoList } from "./components/TodoList";
 import VantaBackground from "./components/VantaBackground";
 import DynamicHeader from "./DynamicHeader";
 import LinksGrid from "./components/LinksGrid";
+// @ts-ignore
 import { getImageUrls } from "./links";
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
 
     const preloadImages = async () => {
       try {
+        // @ts-ignore
         const imagePromises = imageUrls.map((url) => {
           return new Promise((resolve, reject) => {
             const img = new Image();
