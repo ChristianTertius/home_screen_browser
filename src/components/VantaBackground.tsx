@@ -1,4 +1,3 @@
-// components/VantaBackground.tsx
 import React, { useEffect, useRef, useState } from "react";
 
 const VantaBackground: React.FC = () => {
@@ -19,14 +18,13 @@ const VantaBackground: React.FC = () => {
           minWidth: 200.0,
           scale: 1.0,
           scaleMobile: 1.0,
-          // Gunakan backgroundAlpha untuk transparansi dan set manual background image via CSS
-          backgroundAlpha: 0.0, // Membuat background VANTA transparan
-          color1: 0xb49c7a, // Soft brown untuk burung
+          backgroundAlpha: 0.0,
+          color1: 0xb49c7a,
           color2: 0xb49c7a,
           separation: 20,
           alignment: 20,
           cohesion: 20,
-          quantity: 4,
+          quantity: 5,
         });
         setVantaEffect(effect);
       }
@@ -64,12 +62,11 @@ const VantaBackground: React.FC = () => {
         left: 0,
         width: "100%",
         height: "100vh",
-        // Set background image via CSS
         backgroundImage: "url('/bg.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        backgroundColor: "#f0e7db", // Fallback color
+        backgroundColor: "#f0e7db",
         zIndex: -1,
       }}
     />
