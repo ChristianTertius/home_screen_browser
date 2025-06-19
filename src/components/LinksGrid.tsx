@@ -1,9 +1,10 @@
+// @ts-ignore
 import { linksData } from "../links";
 
 const LinksGrid = () => {
   return (
     <div className="flex sm:gap-10 flex-wrap justify-center shadow-sm p-5 rounded-lg backdrop-blur-sm text-shadow-sm text-shadow-white/10">
-      {linksData.map((link) => (
+      {linksData.map((link: any) => (
         <a
           key={link.id}
           href={link.url}
