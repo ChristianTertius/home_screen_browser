@@ -1,153 +1,105 @@
 import "./App.css";
+import { useState, useEffect } from "react";
 import { TodoList } from "./components/TodoList";
 import VantaBackground from "./components/VantaBackground";
 import DynamicHeader from "./DynamicHeader";
+import LinksGrid from "./components/LinksGrid";
+import { getImageUrls } from "./links";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isFading, setIsFading] = useState(false);
+  const [typedText, setTypedText] = useState("");
+  const fullText = "Hello Christian";
+
+  // Typing effect for the loading screen
+  useEffect(() => {
+    let currentIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        setTypedText(fullText.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(typingInterval);
+        // Start fading after typing is complete
+        setTimeout(() => {
+          setIsFading(true);
+          // Remove loading screen after fade-out duration
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 500); // Match the CSS transition duration
+        }, 500); // Brief pause after typing
+      }
+    }, 30);
+
+    return () => clearInterval(typingInterval);
+  }, [fullText]);
+
+  // Preload images
+  useEffect(() => {
+    const imageUrls = getImageUrls();
+
+    const preloadImages = async () => {
+      try {
+        const imagePromises = imageUrls.map((url) => {
+          return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = resolve;
+            img.onerror = reject;
+            img.src = url;
+          });
+        });
+        await Promise.all(imagePromises);
+      } catch (error) {
+        console.error("Error loading images:", error);
+      }
+    };
+
+    preloadImages();
+  }, []);
+
   return (
     <>
-      {/* VantaBackground sebagai background fixed */}
-      <VantaBackground />
-
-      <section className="min-h-screen gap-10 flex flex-col items-center justify-center font-display relative">
-        {/* Hapus bg-main-color karena sekarang pakai VANTA background */}
-        <TodoList />
-        <div className="bg-black/10 w-full h-full fixed"></div>
-        <DynamicHeader />
-        <div className="bg-amber-50/20 backdrop-blur-md px-8 py-4 rounded-2xl">
-          <h1 className="font-display text-3xl font-semibold">
-            This is Home Screen
-          </h1>
+      {/* Loading Screen */}
+      {isLoading && (
+        <div
+          className={`fixed inset-0 bg-black flex items-center justify-center z-50 transition-opacity duration-500 ease-in-out ${
+            isFading ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          <p className="text-white text-3xl font-medium">
+            {typedText}
+            <span className="animate-pulse ml-1">|</span>
+          </p>
         </div>
+      )}
 
-        <div className="flex sm:gap-10 flex-wrap justify-center shadow-sm p-5 rounded-lg bg-amber-50/20 backdrop-blur-sm text-shadow-sm text-shadow-white/10">
-          <a
-            href="https://monkeytype.com/"
-            className="text-center text-sm hover:bg-[#e9e2d7]/20 transition-all  p-5 rounded-md"
-          >
-            <div className="flex justify-center flex-col items-center gap-2">
-              <div className="bg-[#f5f0e8] size-14 rounded-full overflow-hidden p-3">
-                <img
-                  className="rounded-lg"
-                  src="https://www.google.com/s2/favicons?sz=64&domain=monkeytype.com"
-                  alt="Monkeytype favicon"
-                />
-              </div>
-              Monkeytype
-            </div>
-          </a>
+      {/* Main Content - Always rendered, opacity controlled */}
+      <div
+        className={`transition-opacity duration-700 ease-in-out ${
+          isFading ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <VantaBackground />
 
-          <a
-            href="https://youtube.com/"
-            className="text-center size-32 text-sm hover:bg-[#e9e2d7]/20 transition-all  p-5 rounded-md"
-          >
-            <div className="flex justify-center flex-col items-center gap-2">
-              <div className="bg-[#f5f0e8] size-14 rounded-full overflow-hidden p-3">
-                <img
-                  className="rounded-lg"
-                  src="https://www.google.com/s2/favicons?sz=64&domain=youtube.com"
-                  alt="Youtube favicon"
-                />
-              </div>
-              Youtube
-            </div>
-          </a>
+        <section className="min-h-screen gap-10 flex flex-col items-center justify-center font-display relative">
+          <TodoList />
+          <div className="bg-black/10 w-full h-full fixed"></div>
+          <DynamicHeader />
+          <div className="flex sm:gap-10 flex-wrap justify-center shadow-sm py-2 px-4 rounded-full backdrop-blur-sm text-shadow-sm text-shadow-white/10">
+            <h1 className="font-display text-2xl font-semibold">
+              This is Home Screen
+            </h1>
+          </div>
 
-          <a
-            href="https://mail.google.com/mail/u/0/#inbox"
-            className="text-center size-32 text-sm hover:bg-[#e9e2d7]/20 transition-all  p-5 rounded-md"
-          >
-            <div className="flex justify-center flex-col items-center gap-2">
-              <div className="bg-[#f5f0e8] size-14 rounded-full overflow-hidden p-3">
-                <img
-                  src="https://images.icon-icons.com/2631/PNG/512/gmail_new_logo_icon_159149.png"
-                  alt="Gmail"
-                />
-              </div>
-              Gmail
-            </div>
-          </a>
+          {/* LinksGrid component */}
+          <LinksGrid />
 
-          <a
-            href="https://mail.google.com/mail/u/1/#inbox"
-            className="text-center size-32 text-sm hover:bg-[#e9e2d7]/20 transition-all  p-5 rounded-md"
-          >
-            <div className="flex justify-center flex-col items-center gap-2">
-              <div className="bg-[#f5f0e8] size-14 rounded-full overflow-hidden p-3">
-                <img
-                  src="https://images.icon-icons.com/2631/PNG/512/gmail_new_logo_icon_159149.png"
-                  alt="Gmail"
-                />
-              </div>
-              Gmail
-            </div>
-          </a>
-
-          <a
-            href="https://www.twitch.tv/kyedae"
-            className="text-center size-32 text-sm hover:bg-[#e9e2d7]/20 transition-all  p-5 rounded-md"
-          >
-            <div className="flex justify-center flex-col items-center gap-2">
-              <div className="bg-[#f5f0e8] size-14 rounded-full overflow-hidden p-3">
-                <img
-                  src="https://www.google.com/s2/favicons?sz=64&domain=twitch.com"
-                  alt="Twitch"
-                />
-              </div>
-              Twitch
-            </div>
-          </a>
-
-          <a
-            href="https://www.instagram.com/"
-            className="text-center size-32 text-sm hover:bg-[#e9e2d7]/20 transition-all  p-5 rounded-md"
-          >
-            <div className="flex justify-center flex-col items-center gap-2">
-              <div className="bg-[#f5f0e8] size-14 rounded-full overflow-hidden p-3">
-                <img
-                  src="https://www.google.com/s2/favicons?sz=64&domain=instagram.com"
-                  alt="Instagram"
-                />
-              </div>
-              Instagram
-            </div>
-          </a>
-
-          <a
-            href="https://studio.youtube.com/channel/UC3V_KJjdJGp1Dh-NQBmfk3A/monetization"
-            className="text-center size-32 text-sm hover:bg-[#e9e2d7]/20 transition-all  p-5 rounded-md"
-          >
-            <div className="flex justify-center flex-col items-center gap-2">
-              <div className="bg-[#f5f0e8] size-14 rounded-full overflow-hidden p-3">
-                <img
-                  src="https://www.google.com/s2/favicons?sz=64&domain=youtube.com"
-                  alt="YouTube Studio"
-                />
-              </div>
-              Details
-            </div>
-          </a>
-
-          <a
-            href="https://translate.google.co.id/?hl=id"
-            className="text-center size-32 text-sm hover:bg-[#e9e2d7]/20 transition-all  p-5 rounded-md"
-          >
-            <div className="flex justify-center flex-col items-center gap-2">
-              <div className="bg-[#f5f0e8] size-14 rounded-full overflow-hidden p-3">
-                <img
-                  src="https://www.google.com/s2/favicons?sz=64&domain=translate.google.com"
-                  alt="Google Translate"
-                />
-              </div>
-              Google Translate
-            </div>
-          </a>
-        </div>
-
-        <footer className="font-medium fixed w-full bottom-0 text-center py-2 px-5 text-white">
-          Created by Christer 💘
-        </footer>
-      </section>
+          <footer className="font-medium fixed w-full bottom-0 text-center py-2 px-5 text-white">
+            Created by Christer 💘
+          </footer>
+        </section>
+      </div>
     </>
   );
 }

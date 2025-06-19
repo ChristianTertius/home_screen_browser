@@ -43,10 +43,10 @@ const DynamicHeader = () => {
 
   return (
     <header className="fixed top-0 p-5 w-full flex justify-between z-10 items-center">
-      <div className="bg-[#ecdac4] px-5 py-2 rounded-lg font-medium">
+      <div className="bg-[#ecdac4]/80 backdrop-blur-sm px-5 py-2 rounded-lg font-medium">
         {currentDate}
       </div>
-      <h1 className="text-right font-semibold text-lg">
+      <h1 className="flex sm:gap-10 flex-wrap justify-center shadow-sm py-2 px-4 rounded-full text-white backdrop-blur-sm text-shadow-sm">
         🖐 Good {greeting} Christer
       </h1>
     </header>
