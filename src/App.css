@@ -8,13 +8,8 @@
 }
 /* Ensure backdrop-blur is pre-rendered */
 .bg-amber-50\/20 {
-  background-color: rgba(
-    254,
-    243,
-    199,
-    0.2
-  ); /* Explicitly define amber-50/20 */
-  backdrop-filter: blur(8px); /* Match backdrop-blur-md */
-  -webkit-backdrop-filter: blur(8px); /* Safari support */
-  will-change: backdrop-filter, transform; /* Hint to browser for GPU acceleration */
+  background-color: rgba(254, 243, 199, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  will-change: backdrop-filter, transform;
 }
