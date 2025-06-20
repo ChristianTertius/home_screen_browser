@@ -24,7 +24,7 @@ const VantaBackground: React.FC = () => {
           separation: 20,
           alignment: 20,
           cohesion: 20,
-          quantity: 5,
+          quantity: 3,
         });
         setVantaEffect(effect);
       }
