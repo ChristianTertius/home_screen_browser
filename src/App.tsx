@@ -6,6 +6,8 @@ import DynamicHeader from "./DynamicHeader";
 import LinksGrid from "./components/LinksGrid";
 // @ts-ignore
 import { getImageUrls } from "./links";
+import Title from "./components/Title";
+import Footer from "./components/Footer";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -62,7 +64,6 @@ function App() {
 
   return (
     <>
-      {/* Loading Screen */}
       {isLoading && (
         <div
           className={`fixed inset-0 bg-black flex items-center justify-center z-50 transition-opacity duration-500 ease-in-out ${
@@ -76,7 +77,6 @@ function App() {
         </div>
       )}
 
-      {/* Main Content - Always rendered, opacity controlled */}
       <div
         className={`transition-opacity duration-700 ease-in-out ${
           isFading ? "opacity-100" : "opacity-0"
@@ -88,18 +88,9 @@ function App() {
           <TodoList />
           <div className="bg-black/10 w-full h-full fixed"></div>
           <DynamicHeader />
-          <div className="flex sm:gap-10 flex-wrap justify-center shadow-sm py-2 px-4 rounded-full backdrop-blur-sm text-shadow-sm text-shadow-white/10">
-            <h1 className="font-display text-2xl font-extralight text-white">
-              This is Home Screen
-            </h1>
-          </div>
-
-          {/* LinksGrid component */}
+          <Title />
           <LinksGrid />
-
-          <footer className="font-medium fixed w-full bottom-0 text-center py-2 px-5 text-white">
-            Created by Christer 💘
-          </footer>
+          <Footer />
         </section>
       </div>
     </>
