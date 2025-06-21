@@ -43,7 +43,7 @@ const DynamicHeader = () => {
 
   return (
     <header className="fixed top-0 p-5 w-full flex justify-between z-10 items-center">
-      <div className="flex gap-2 items-center">
+      <div className="flex gap-2 items-start flex-col">
         <div className="bg-[#ecdac4]/80 backdrop-blur-sm px-5 py-2 rounded-lg font-medium">
           {currentDate}
         </div>
