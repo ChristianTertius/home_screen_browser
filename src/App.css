@@ -13,3 +13,25 @@
   -webkit-backdrop-filter: blur(8px);
   will-change: backdrop-filter, transform;
 }
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 15px;
+    height: 20px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #f7f4ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #d6c2ac;
+    border-radius: 100vh;
+    border: 3px solid #f6f7ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #d6c2bf;
+  }
+}
