@@ -77,6 +77,7 @@ function App() {
         </div>
       )}
 
+      <h1>ini branch main</h1>
       <div
         className={`transition-opacity duration-700 ease-in-out ${
           isFading ? "opacity-100" : "opacity-0"
