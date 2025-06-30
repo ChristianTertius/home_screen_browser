@@ -82,10 +82,7 @@ function App() {
         }`}
       >
         <VantaBackground />
-        <h1>
-          halo this is from budi_santoso branch dan juga sangat tampan dan
-          menawan(created at budi_santoso branch)
-        </h1>
+        <h1>test ini "MAIN BRANCH" yang dimana sangat tamapan dan menawan</h1>
         <section className="min-h-screen gap-10 flex flex-col items-center justify-center font-display relative">
           <TodoList />
           <div className="bg-black/10 w-full h-full fixed"></div>
