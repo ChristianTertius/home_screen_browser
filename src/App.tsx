@@ -82,6 +82,7 @@ function App() {
         }`}
       >
         <VantaBackground />
+        <section className="text-xl font-bold">ini budi santoso mencoba section</section>
         <section className="min-h-screen gap-10 flex flex-col items-center justify-center font-display relative">
           <TodoList />
           <div className="bg-black/10 w-full h-full fixed"></div>
