@@ -76,6 +76,7 @@ function App() {
           </p>
         </div>
       )}
+
       <div
         className={`transition-opacity duration-700 ease-in-out ${
           isFading ? "opacity-100" : "opacity-0"
@@ -85,6 +86,11 @@ function App() {
         <section className="min-h-screen gap-10 flex flex-col items-center justify-center font-display relative">
           <TodoList />
           <div className="bg-black/10 w-full h-full fixed"></div>
+
+          <h1>ini anton</h1>
+          <h1>ini budi</h1>
+          <h1>ini wawan</h1>
+
           <DynamicHeader />
           <Title />
           <LinksGrid />
