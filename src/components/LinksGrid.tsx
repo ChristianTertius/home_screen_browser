@@ -13,7 +13,7 @@ const LinksGrid = () => {
           }`}
         >
           <div className="flex justify-center flex-col items-center gap-2">
-            <div className="bg-[#f5f0e8] size-14 rounded-full overflow-hidden p-3">
+            <div className="bg-gray-950/80 size-14 rounded-full overflow-hidden p-3">
               <img className="rounded-lg" src={link.iconUrl} alt={link.alt} />
             </div>
             {link.name}

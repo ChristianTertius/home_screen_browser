@@ -16,27 +16,27 @@ function App() {
   const fullText = "Hello Christian";
 
   // Typing effect for the loading screen
-  useEffect(() => {
-    let currentIndex = 0;
-    const typingInterval = setInterval(() => {
-      if (currentIndex <= fullText.length) {
-        setTypedText(fullText.slice(0, currentIndex));
-        currentIndex++;
-      } else {
-        clearInterval(typingInterval);
-        // Start fading after typing is complete
-        setTimeout(() => {
-          setIsFading(true);
-          // Remove loading screen after fade-out duration
-          setTimeout(() => {
-            setIsLoading(false);
-          }, 500); // Match the CSS transition duration
-        }, 500); // Brief pause after typing
-      }
-    }, 30);
-
-    return () => clearInterval(typingInterval);
-  }, [fullText]);
+  // useEffect(() => {
+  //   let currentIndex = 0;
+  //   const typingInterval = setInterval(() => {
+  //     if (currentIndex <= fullText.length) {
+  //       setTypedText(fullText.slice(0, currentIndex));
+  //       currentIndex++;
+  //     } else {
+  //       clearInterval(typingInterval);
+  //       // Start fading after typing is complete
+  //       setTimeout(() => {
+  //         setIsFading(true);
+  //         // Remove loading screen after fade-out duration
+  //         setTimeout(() => {
+  //           setIsLoading(false);
+  //         }, 500); // Match the CSS transition duration
+  //       }, 500); // Brief pause after typing
+  //     }
+  //   }, 30);
+  //
+  //   return () => clearInterval(typingInterval);
+  // }, [fullText]);
 
   // Preload images
   useEffect(() => {
@@ -64,39 +64,15 @@ function App() {
 
   return (
     <>
-      {isLoading && (
-        <div
-          className={`fixed inset-0 bg-black flex items-center justify-center z-50 transition-opacity duration-500 ease-in-out ${
-            isFading ? "opacity-0" : "opacity-100"
-          }`}
-        >
-          <p className="text-white text-3xl font-medium">
-            {typedText}
-            <span className="animate-pulse ml-1">|</span>
-          </p>
-        </div>
-      )}
+      {/* <VantaBackground /> */}
 
-      <div
-        className={`transition-opacity duration-700 ease-in-out ${
-          isFading ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <VantaBackground />
-        <section className="min-h-screen gap-10 flex flex-col items-center justify-center font-display relative">
-          <TodoList />
-          <div className="bg-black/10 w-full h-full fixed"></div>
-
-          <h1>ini anton</h1>
-          <h1>ini budi</h1>
-          <h1>ini wawan</h1>
-
-          <DynamicHeader />
-          <Title />
-          <LinksGrid />
-          <Footer />
-        </section>
-      </div>
+      {/* <TodoList /> */}
+      {/* <DynamicHeader /> */}
+      {/* <Title /> */}
+      <section className="bg-[#252525] text-white min-h-screen grid place-items-center">
+        <LinksGrid />
+      </section>
+      {/* <Footer /> */}
     </>
   );
 }
